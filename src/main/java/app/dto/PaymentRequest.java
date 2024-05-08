@@ -2,8 +2,8 @@ package app.dto;
 
 public class PaymentRequest {
 
-    private String device;
-    private boolean released;
+    String device;
+    boolean released;
 
     public String getDevice() {
         return device;

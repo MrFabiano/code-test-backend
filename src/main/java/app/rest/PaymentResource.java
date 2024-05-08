@@ -37,9 +37,18 @@ public class PaymentResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public EPayment getPayment() {
-        String device = "example_device_id";
-        return paymentRepository.findByDevice(device);
+    public Response getPayment(@QueryParam("device") String device) {
+        if (device != null && !device.isEmpty()) {
+            EPayment payment = paymentRepository.findByDevice(device);
+            if (payment != null) {
+                return Response.ok(payment).build();
+            } else {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
+        } else {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
     }
 }
+
 

@@ -2,7 +2,7 @@ package app.dto;
 
 public class PaymentResponse {
 
-    private int statusCode;
+    int statusCode;
 
     public int getStatusCode() {
         return statusCode;
