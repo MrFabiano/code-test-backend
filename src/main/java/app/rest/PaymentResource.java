@@ -24,14 +24,13 @@ public class PaymentResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response processPayment(PaymentRequest paymentRequest) {
         if (paymentRequest != null) {
-            // Aqui você implementaria a lógica real para processar o pagamento
             // Por exemplo, você pode chamar um serviço para processar o pagamento
             paymentService.processPayment(paymentRequest);
 
-            // Supondo que a operação seja bem-sucedida, você retornaria o código 201 (CREATED)
+            // Supondo que a operação seja bem-sucedida, retorna código 201 (CREATED)
             return Response.status(Response.Status.CREATED).build();
         } else {
-            // Se o pagamento for inválido ou não existir, você retornaria um código 400 (BAD REQUEST)
+            // Se o pagamento for inválido ou não existir, retorna 400 (BAD REQUEST)
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
     }

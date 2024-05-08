@@ -20,7 +20,6 @@ public class SavePaymentUseCase implements ISavePaymentUseCase {
     }
 
     public void save(EPayment payment) {
-        // Aqui você implementa a lógica para salvar o pagamento utilizando o repository
         paymentRepository.save(payment);
     }
 }

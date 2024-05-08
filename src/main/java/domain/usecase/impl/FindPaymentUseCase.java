@@ -21,7 +21,6 @@ public class FindPaymentUseCase implements IFindPaymentUseCase {
 
     @Override
     public EPayment findByDevice(String device) {
-        // Aqui você implementa a lógica para encontrar um pagamento pelo dispositivo
         return paymentRepository.findByDevice(device);
     }
 }

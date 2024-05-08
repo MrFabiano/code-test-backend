@@ -9,7 +9,7 @@ public class KafkaConsumer {
 
     @Incoming("contractions-events")
     public void consume(String message) {
-        // Lógica para processar a mensagem consumida
+        // processar a mensagem consumida
         System.out.println("Consumed message: " + message);
     }
 }
