@@ -1,9 +1,11 @@
 package app.rest;
 
 import app.dto.PaymentRequest;
+import app.service.PaymentService;
 import domain.entity.EPayment;
 import infra.db.repository.IPaymentRepository;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -14,14 +16,17 @@ public class PaymentResource {
     @Inject
     IPaymentRepository paymentRepository;
 
+    @Inject
+    PaymentService paymentService;
+
     @POST
+    @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public Response processPayment(PaymentRequest paymentRequest) {
         if (paymentRequest != null) {
-             //Aqui você implementaria a lógica real para processar o pagamento
+            // Aqui você implementaria a lógica real para processar o pagamento
             // Por exemplo, você pode chamar um serviço para processar o pagamento
-             //PaymentService paymentService = new PaymentService();
-            // paymentService.processPayment(paymentRequest);
+            paymentService.processPayment(paymentRequest);
 
             // Supondo que a operação seja bem-sucedida, você retornaria o código 201 (CREATED)
             return Response.status(Response.Status.CREATED).build();

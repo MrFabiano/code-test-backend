@@ -24,6 +24,6 @@ public class ResourceInterceptor implements ContainerRequestFilter {
     }
 
     public boolean usuarioTemPermissao(String token) {
-        return "token_de_autenticacao_valido".equals(token);
+        return "TOKEN_AUTHORIZATION".equals(token);
     }
 }
