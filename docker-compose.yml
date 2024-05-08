@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  quarkus-app:
+    image: postgres:15-alpine
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - QUARKUS_DATASOURCE_URL=jdbc:postgresql://postgres:5432/testbackend
+      - QUARKUS_DATASOURCE_USERNAME=postgres
+      - QUARKUS_DATASOURCE_PASSWORD=postgres
+
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=testbackend
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
